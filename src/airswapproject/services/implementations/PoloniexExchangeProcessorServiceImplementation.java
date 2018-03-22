@@ -83,6 +83,13 @@ public class PoloniexExchangeProcessorServiceImplementation implements PoloniexE
 		} else {
 			System.out.println("GET request not worked");
 		}
+                if(currencyMap.get(cryptocurrency1)==null ||currencyMap.get(cryptocurrency2)==null){
+                    try {
+                        throw new Exception("Invalid currency : Please provide valid currencies");
+                    } catch (Exception ex) {
+                        Logger.getLogger(PoloniexExchangeProcessorServiceImplementation.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 results.add(currencyMap.get(cryptocurrency1));
                 results.add(currencyMap.get(cryptocurrency2));
                 
